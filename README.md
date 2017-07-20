@@ -1,13 +1,13 @@
-# merge-value [![NPM version](https://badge.fury.io/js/merge-value.svg)](http://badge.fury.io/js/merge-value)
+# merge-value [![NPM version](https://img.shields.io/npm/v/merge-value.svg?style=flat)](https://www.npmjs.com/package/merge-value) [![NPM monthly downloads](https://img.shields.io/npm/dm/merge-value.svg?style=flat)](https://npmjs.org/package/merge-value) [![NPM total downloads](https://img.shields.io/npm/dt/merge-value.svg?style=flat)](https://npmjs.org/package/merge-value) [![Linux Build Status](https://img.shields.io/travis/jonschlinkert/merge-value.svg?style=flat&label=Travis)](https://travis-ci.org/jonschlinkert/merge-value)
 
 > Similar to assign-value but deeply merges object values or nested values using object path/dot notation.
 
 ## Install
 
-Install with [npm](https://www.npmjs.com/)
+Install with [npm](https://www.npmjs.com/):
 
 ```sh
-$ npm i merge-value --save
+$ npm install --save merge-value
 ```
 
 ## Usage
@@ -17,55 +17,67 @@ var merge = require('merge-value');
 
 var obj = {};
 merge(obj, 'foo', {a: 'b'})
-// obj.foo ==> {a: 'b'}
+//=> obj.foo ==> {a: 'b'}
 
 var obj = {foo: {a: 'b'}};
 merge(obj, 'foo', {c: 'd'})
-// obj.foo ==> {a: 'b', c: 'd'}
+//=> obj.foo ==> {a: 'b', c: 'd'}
 
 var obj = {};
 merge(obj, 'a.b.c', {one: 'two'});
 merge(obj, 'a.b.c', {three: 'four'});
-// obj.a.b.c ==> {one: 'two', three: 'four'}
+//=> obj.a.b.c ==> {one: 'two', three: 'four'}
 
 var obj = {foo: {bar: {baz: {a: 'b'}}}};
 merge(obj, 'foo', {bar: {baz: {c: 'd'}}});
 //=> {foo: {bar: {baz: {a: 'b', c: 'd'}}}}
 ```
 
-## Related projects
+## About
 
-* [assign-value](https://www.npmjs.com/package/assign-value): Extend a value or deeply nested property of an object using object path notation. | [homepage](https://github.com/jonschlinkert/assign-value)
-* [get-value](https://www.npmjs.com/package/get-value): Use property paths (`  a.b.c`) to get a nested value from an object. | [homepage](https://github.com/jonschlinkert/get-value)
-* [has-value](https://www.npmjs.com/package/has-value): Returns true if a value exists, false if empty. Works with deeply nested values using… [more](https://www.npmjs.com/package/has-value) | [homepage](https://github.com/jonschlinkert/has-value)
-* [set-value](https://www.npmjs.com/package/set-value): Create nested values and any intermediaries using dot notation (`'a.b.c'`) paths. | [homepage](https://github.com/jonschlinkert/set-value)
-* [union-value](https://www.npmjs.com/package/union-value): Set an array of unique values as the property of an object. Supports setting deeply… [more](https://www.npmjs.com/package/union-value) | [homepage](https://github.com/jonschlinkert/union-value)
-* [unset-value](https://www.npmjs.com/package/unset-value): Delete nested properties from an object using dot notation. | [homepage](https://github.com/jonschlinkert/unset-value)
+### Related projects
 
-## Running tests
+* [assign-value](https://www.npmjs.com/package/assign-value): Assign a value or extend a deeply nested property of an object using object path… [more](https://github.com/jonschlinkert/assign-value) | [homepage](https://github.com/jonschlinkert/assign-value "Assign a value or extend a deeply nested property of an object using object path notation.")
+* [get-value](https://www.npmjs.com/package/get-value): Use property paths (`a.b.c`) to get a nested value from an object. | [homepage](https://github.com/jonschlinkert/get-value "Use property paths (`a.b.c`) to get a nested value from an object.")
+* [has-value](https://www.npmjs.com/package/has-value): Returns true if a value exists, false if empty. Works with deeply nested values using… [more](https://github.com/jonschlinkert/has-value) | [homepage](https://github.com/jonschlinkert/has-value "Returns true if a value exists, false if empty. Works with deeply nested values using object paths.")
+* [set-value](https://www.npmjs.com/package/set-value): Create nested values and any intermediaries using dot notation (`'a.b.c'`) paths. | [homepage](https://github.com/jonschlinkert/set-value "Create nested values and any intermediaries using dot notation (`'a.b.c'`) paths.")
+* [union-value](https://www.npmjs.com/package/union-value): Set an array of unique values as the property of an object. Supports setting deeply… [more](https://github.com/jonschlinkert/union-value) | [homepage](https://github.com/jonschlinkert/union-value "Set an array of unique values as the property of an object. Supports setting deeply nested properties using using object-paths/dot notation.")
+* [unset-value](https://www.npmjs.com/package/unset-value): Delete nested properties from an object using dot notation. | [homepage](https://github.com/jonschlinkert/unset-value "Delete nested properties from an object using dot notation.")
 
-Install dev dependencies:
+### Contributing
+
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).
+
+### Building docs
+
+_(This project's readme.md is generated by [verb](https://github.com/verbose/verb-generate-readme), please don't edit the readme directly. Any changes to the readme must be made in the [.verb.md](.verb.md) readme template.)_
+
+To generate the readme, run the following command:
 
 ```sh
-$ npm i -d && npm test
+$ npm install -g verbose/verb#dev verb-generate-readme && verb
 ```
 
-## Contributing
+### Running tests
 
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/merge-value/issues/new).
+Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:
 
-## Author
+```sh
+$ npm install && npm test
+```
+
+### Author
 
 **Jon Schlinkert**
 
-+ [github/jonschlinkert](https://github.com/jonschlinkert)
-+ [twitter/jonschlinkert](http://twitter.com/jonschlinkert)
+* [github/jonschlinkert](https://github.com/jonschlinkert)
+* [twitter/jonschlinkert](https://twitter.com/jonschlinkert)
 
-## License
+### License
 
-Copyright © 2015 Jon Schlinkert
-Released under the MIT license.
+Copyright © 2017, [Jon Schlinkert](https://github.com/jonschlinkert).
+Released under the [MIT License](LICENSE).
 
 ***
 
-_This file was generated by [verb-cli](https://github.com/assemble/verb-cli) on October 02, 2015._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on July 20, 2017._
