@@ -1,27 +1,29 @@
 'use strict';
 
-var utils = require('./utils');
+var isObject = require('is-extendable');
+var merge = require('mixin-deep');
+var get = require('get-value');
+var set = require('set-value');
 
-module.exports = function merge(obj, prop, value) {
-  if (!utils.isObject(obj)) {
-    throw new TypeError('expected the first argument to be an object.');
+module.exports = function mergeValue(obj, prop, value) {
+  if (!isObject(obj)) {
+    throw new TypeError('expected an object');
   }
 
-  if (typeof prop === 'undefined' && typeof value === 'undefined') {
-    return obj;
-  }
-
-  if (typeof value === 'undefined' && utils.isObject(prop)) {
-    return utils.merge(obj, prop);
+  if (typeof prop !== 'string' || value == null) {
+    return merge.apply(null, arguments);
   }
 
   if (typeof value === 'string') {
-    utils.set(obj, prop, value);
+    set(obj, prop, value);
     return obj;
   }
 
-  var current = utils.get(obj, prop);
-  var val = utils.merge({}, current, value);
-  utils.set(obj, prop, val);
+  var current = get(obj, prop);
+  if (isObject(value) && isObject(current)) {
+    value = merge({}, current, value);
+  }
+
+  set(obj, prop, value);
   return obj;
 };
