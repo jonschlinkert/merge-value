@@ -1,7 +1,7 @@
 {
   "name": "merge-value",
   "description": "Similar to assign-value but deeply merges object values or nested values using object path/dot notation.",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "homepage": "https://github.com/jonschlinkert/merge-value",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/merge-value",
